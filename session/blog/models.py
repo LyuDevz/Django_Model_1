@@ -7,7 +7,6 @@ class Blog(models.Model):
     email = models.EmailField(max_length=128, null=True)
     posted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
     introduce = models.TextField()
     
    
