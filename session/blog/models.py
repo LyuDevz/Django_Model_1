@@ -1,12 +1,15 @@
 from django.db import models
 
-# Create your models here.
 class Blog(models.Model):
-    category=models.Choices
-    title = models.CharField(max_length=100)
-    created_at= models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=100, help_text='블로그 제목을 작성해주세요')
+    author = models.CharField(max_length=10,default="")
+    StudentID = models.CharField(max_length=8,default="", help_text="학번을 입력해주세요(예시:20181020)")
+
+    posted_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     introduce = models.TextField()
-
-
+    
+   
     def __str__(self):
         return self.title
