@@ -1,0 +1,14 @@
+<h1>블로그 홈페이지</h1>
+<div>
+  {% for blog in blogs %}
+  <a href="{%url 'detail' blog.id%}">
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.author}}</p>
+    <p>{{blog.StudentID}}</p>
+    <p>{{blog.email}}</p>
+    <p>{{blog.posted_at}}</p>
+    <p>{{blog.updated_at}}</p>
+    <p>{{blog.summary}}</p>
+  </a>
+  {% endfor %}
+</div>
