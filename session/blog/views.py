@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
-from django.http import HttpResponse
 
 def home(request):
     # Blog에 있는 모든 객체들을 가져오는 것
@@ -13,3 +12,10 @@ def detail(request, blog_id):
 
 def new(request):
     return render(request, 'new.html')
+
+def create(request):
+    new_blog=Blog()
+    new_blog.title = request.POST['title']
+    new_blog.content = request.POST['content']
+    new_blog.save()
+    return redirect('detail', new_blog.id)
